@@ -13,7 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Préparer et exécuter la requête d'insertion
     try {
-        $stmt = $pdo->prepare('INSERT INTO admins (username, password) VALUES (?, ?)');
+        $stmt = $pdo->prepare('INSERT INTO admin (username, password) VALUES (?, ?)');
         $stmt->execute([$username, $hashed_password]);
 
         $success_message = "Nouvel admin ajouté avec succès !";
@@ -25,41 +25,57 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Créer un nouvel admin</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="createUser.css">
 </head>
 <body>
-    <div class="container">
-        <h2>Créer un nouvel admin</h2>
+<div class="container">
+    <div class="form-container">
+        <h2><i class="fas fa-user-plus"></i> Créer un nouvel admin</h2>
 
         <?php if (isset($success_message)): ?>
-            <p style="color:green;"><?php echo htmlspecialchars($success_message); ?></p>
-            <p><a href="login.php">Cliquez ici pour vous connecter</a></p>
+            <p class="success-message"><i class="fas fa-check-circle"></i> <?php echo htmlspecialchars($success_message); ?></p>
+            <p class="redirect-message">Redirection vers la page de connexion dans <span id="countdown">5</span> secondes...</p>
+            <p><a href="login.php" class="login-link">Cliquez ici pour vous connecter maintenant</a></p>
             <script>
-                setTimeout(function() {
-                    window.location.href = "login.php"; // Redirige après 5 secondes
-                }, 5000); // 5000 millisecondes = 5 secondes
+                var seconds = 5;
+                function countdown() {
+                    document.getElementById('countdown').innerHTML = seconds;
+                    if (seconds > 0) {
+                        seconds--;
+                        setTimeout(countdown, 1000);
+                    } else {
+                        window.location.href = "login.php";
+                    }
+                }
+                countdown();
             </script>
         <?php endif; ?>
 
-
         <?php if (isset($error_message)): ?>
-            <p style="color:red;"><?php echo $error_message; ?></p>
+            <p class="error-message"><i class="fas fa-exclamation-circle"></i> <?php echo $error_message; ?></p>
         <?php endif; ?>
 
         <form method="POST" action="">
-            <label for="username">Nom d'utilisateur :</label>
-            <input type="text" id="username" name="username" required>
-            <br>
-            <label for="password">Mot de passe :</label>
-            <input type="password" id="password" name="password" required>
-            <br>
-            <input type="submit" value="Créer un admin">
+            <div class="input-group">
+                <label for="username"><i class="fas fa-user"></i></label>
+                <input type="text" id="username" name="username" placeholder="Nom d'utilisateur" required>
+            </div>
+            <div class="input-group">
+                <label for="password"><i class="fas fa-lock"></i></label>
+                <input type="password" id="password" name="password" placeholder="Mot de passe" required>
+            </div>
+            <button type="submit" class="submit-btn">Créer un admin</button>
         </form>
+        <div class="login-link-container">
+            <a href="login.php" class="login-link">Retour à la connexion <i class="fas fa-sign-in-alt"></i></a>
+        </div>
     </div>
+</div>
 </body>
 </html>

@@ -8,10 +8,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = $_POST['password'];
 
     // Prepare the SQL query to fetch the user by username
-    $stmt = $pdo->prepare('SELECT * FROM admins WHERE username = ?');
+    $stmt = $pdo->prepare('SELECT * FROM admin WHERE username = ?');
     $stmt->execute([$username]);
     $admin = $stmt->fetch();
-    // echo $admin['password'];
+
     // If the admin user is found, verify the password
     if ($admin['password'] && password_verify($password, $admin['password'])) {
         // Set session for admin user
@@ -30,25 +30,34 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Admin Login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="login.css">
 </head>
 <body>
-    <div class="container">
-        <h2>Admin Login</h2>
+<div class="container">
+    <div class="login-form">
+        <h2><i class="fas fa-user-shield"></i> Login </h2>
         <?php if (isset($error)): ?>
-            <p style="color:red;"><?php echo $error; ?></p>
+            <p class="error-message"><i class="fas fa-exclamation-circle"></i> <?php echo $error; ?></p>
         <?php endif; ?>
         <form method="POST" action="">
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username" required>
-            
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required>
-            
-            <input type="submit" value="Login">
+            <div class="input-group">
+                <label for="username"><i class="fas fa-user"></i></label>
+                <input type="text" id="username" name="username" placeholder="Username" required>
+            </div>
+
+            <div class="input-group">
+                <label for="password"><i class="fas fa-lock"></i></label>
+                <input type="password" id="password" name="password" placeholder="Password" required>
+            </div>
+
+            <button type="submit" class="login-btn">Login</button>
         </form>
-        <a href="createUser.php">Go Create Account</a>
+        <div class="create-account">
+            <a href="createUser.php">Create Account <i class="fas fa-arrow-right"></i></a>
+        </div>
     </div>
+</div>
 </body>
 </html>
