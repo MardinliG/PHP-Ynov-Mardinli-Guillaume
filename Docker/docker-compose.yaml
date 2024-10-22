@@ -14,7 +14,7 @@ services:
     image: mariadb:latest
     environment:
       MYSQL_ROOT_PASSWORD: "root"
-      MYSQL_DATABASE: "guillaume_db"
+      MYSQL_DATABASE: "last_test"
     volumes:
       - mysqldata:/var/lib/mysql
     ports:
@@ -24,7 +24,7 @@ services:
     environment:
       PMA_HOST: db
       MYSQL_ROOT_PASSWORD: "root"
-      MYSQL_DATABASE: "guillaume_db"
+      MYSQL_DATABASE: "last_test"
     ports:
       - "8080:8080"
 
