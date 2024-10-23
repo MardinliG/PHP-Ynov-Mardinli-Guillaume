@@ -78,6 +78,9 @@ try {
             <a href="download_cv.php?user_id=<?php echo $user['admin_id']; ?>" class="download-btn">
                 <i class="fas fa-download"></i> Download CV
             </a>
+            <a href="contact.php?user_id=<?php echo $user['admin_id']; ?>" class="contact-btn">
+                <i class="fas fa-envelope"></i> Contact
+            </a>
         </div>
     <?php endforeach; ?>
 </main>
