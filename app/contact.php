@@ -1,55 +1,74 @@
 <?php
+// Inclut la connexion à la base de données et les classes nécessaires
 require 'db.php';
 require 'vendor/autoload.php';
+
+// Démarre une session
 session_start();
 
+// Vérifie si l'ID utilisateur est fourni dans l'URL
 if (!isset($_GET['user_id'])) {
+    // Si non, affiche un message d'erreur et arrête le script
     echo "No user ID provided.";
     exit();
 }
 
+// Récupère l'ID utilisateur depuis l'URL
 $user_id = $_GET['user_id'];
 
 try {
+    // Prépare une requête pour récupérer l'email de l'utilisateur à partir de son ID
     $stmt = $pdo->prepare('SELECT email FROM contact WHERE admin_id = ?');
     $stmt->execute([$user_id]);
     $contact = $stmt->fetch();
 
+    // Si aucun utilisateur n'est trouvé, affiche un message d'erreur
     if (!$contact) {
         echo "User not found.";
         exit();
     }
 
+    // Stocke l'email du contact récupéré
     $recipient_email = $contact['email'];
 } catch (PDOException $e) {
+    // En cas d'erreur de base de données, affiche un message et arrête le script
     echo "Error: " . $e->getMessage();
     exit();
 }
 
+// Variables pour gérer l'état de l'envoi du message
 $message_sent = false;
 $error_message = '';
 
+// Vérifie si le formulaire a été soumis (méthode POST)
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    // Récupère l'email de l'expéditeur et le message soumis par le formulaire
     $sender_email = $_POST['email'];
     $message = $_POST['message'];
 
+    // Crée une instance de PHPMailer pour envoyer l'email
     $mail = new \PHPMailer\PHPMailer\PHPMailer();
     $mail->isSMTP();
-    $mail->Host = 'smtp.office365.com';
+    $mail->Host = 'smtp.office365.com;smtp.gmail.com';
     $mail->SMTPAuth = true;
     $mail->Username = 'guillaume.mardinli@ynov.com';
     $mail->Password = 'Antananarivo*9931';
     $mail->SMTPSecure = \PHPMailer\PHPMailer\PHPMailer::ENCRYPTION_STARTTLS;
     $mail->Port = 587;
 
-    $mail->setFrom('guillaume.mardinli@ynov.com');
+    // Configure l'email : expéditeur, réponse, destinataire, sujet et contenu
+    $mail->setFrom('guillaume.mardinli@ynov.com', 'CV Craft');
+    $mail->addReplyTo($sender_email);
     $mail->addAddress($recipient_email);
     $mail->Subject = 'Contact from CV Gallery';
     $mail->Body = $message;
 
+    // Essaye d'envoyer l'email
     if ($mail->send()) {
+        // Si l'envoi est réussi, indique que le message est envoyé
         $message_sent = true;
     } else {
+        // Sinon, stocke l'erreur
         $error_message = "Mailer Error: " . $mail->ErrorInfo;
     }
 }
