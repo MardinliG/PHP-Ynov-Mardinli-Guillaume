@@ -1,7 +1,8 @@
 <?php
-// Inclut la connexion à la base de données et les classes nécessaires
+// Inclut la connexion à la base de données, les classes nécessaires et le fichier de configuration
 require 'db.php';
 require 'vendor/autoload.php';
+require 'config.php';
 
 // Démarre une session
 session_start();
@@ -51,13 +52,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $mail->isSMTP();
     $mail->Host = 'smtp.office365.com;smtp.gmail.com';
     $mail->SMTPAuth = true;
-    $mail->Username = 'guillaume.mardinli@ynov.com';
-    $mail->Password = 'Antananarivo*9931';
-    $mail->SMTPSecure = \PHPMailer\PHPMailer\PHPMailer::ENCRYPTION_STARTTLS;
+    // J'ai pas push le fichier config.php parce que il contient des infos privées
+    $mail->Username = SMTP_USERNAME; // Utilise la constante définie dans config.php
+    $mail->Password = SMTP_PASSWORD; // Utilise la constante définie dans config.php
+    $mail->SMTPSecure = PHPMailer\PHPMailer\PHPMailer::ENCRYPTION_STARTTLS;
     $mail->Port = 587;
 
     // Configure l'email : expéditeur, réponse, destinataire, sujet et contenu
-    $mail->setFrom('guillaume.mardinli@ynov.com', 'CV Craft');
+    $mail->setFrom(SMTP_USERNAME, 'CV Craft');
     $mail->addReplyTo($sender_email);
     $mail->addAddress($recipient_email);
     $mail->Subject = 'Contact from CV Gallery';
