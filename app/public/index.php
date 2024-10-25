@@ -1,6 +1,6 @@
 <?php
 session_start();
-require 'db.php'; // Include the database connection
+require './database/db.php'; // Include the database connection
 
 // Check if the user is logged in as admin
 if (!isset($_SESSION['admin_id'])) {
@@ -117,9 +117,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <nav class="top-nav">
         <div class="button-container">
             <button id="editBtn" class="btn btn-edit"><i class="fas fa-edit"></i> Modifier</button>
-            <a href="download_cv.php" class="btn btn-download"><i class="fas fa-download"></i> Télécharger CV</a>
+            <a href="pdf/download_cv.php" class="btn btn-download"><i class="fas fa-download"></i> Télécharger CV</a>
             <a href="gallery.php" class="btn btn-gallery"><i class="fas fa-images"></i> Voir les CV</a>
-            <a href="logout.php" class="btn btn-logout"><i class="fas fa-sign-out-alt"></i> Déconnexion</a>
+            <a href="register/logout.php" class="btn btn-logout"><i class="fas fa-sign-out-alt"></i> Déconnexion</a>
         </div>
     </nav>
     <header>
