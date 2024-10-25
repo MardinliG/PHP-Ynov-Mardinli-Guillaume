@@ -1,14 +1,14 @@
 <?php
 require('fpdf186/fpdf.php');
 session_start();
-require 'db.php';
+require '../database/db.php';
 
 // Prévenir toute sortie avant la génération du PDF
 ob_start();
 
 // Vérifier si un utilisateur est connecté
 if (!isset($_SESSION['admin_id'])) {
-header("Location: login.php");
+header("Location: ../register/login.php");
 exit();
 }
 

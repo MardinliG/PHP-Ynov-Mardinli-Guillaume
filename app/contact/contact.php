@@ -1,6 +1,6 @@
 <?php
 // Inclut la connexion à la base de données, les classes nécessaires et le fichier de configuration
-require 'db.php';
+require '../database/db.php';
 require 'vendor/autoload.php';
 require 'config.php';
 
@@ -83,7 +83,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us - CV Gallery</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="assets/contact.css">
+    <link rel="stylesheet" href="../assets/contact.css">
 </head>
 <body>
 <div class="container">
@@ -116,7 +116,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <button type="submit"><i class="fas fa-paper-plane"></i> Send Message</button>
     </form>
 
-    <a href="gallery.php" class="back-button"><i class="fas fa-arrow-left"></i> Back to Gallery</a>
+    <a href="../public/gallery.php" class="back-button"><i class="fas fa-arrow-left"></i> Back to Gallery</a>
 </div>
 </body>
 </html>

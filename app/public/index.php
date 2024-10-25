@@ -1,10 +1,10 @@
 <?php
 session_start();
-require './database/db.php'; // Include the database connection
+require '../database/db.php'; // Include the database connection
 
 // Check if the user is logged in as admin
 if (!isset($_SESSION['admin_id'])) {
-    header("Location: login.php");
+    header("Location: ../register/login.php");
     exit();
 }
 
@@ -105,7 +105,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+3i4m1zt7f1D8y+3C5i5M2k5z5z5z" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="assets/index.css">
+    <link rel="stylesheet" href="../assets/index.css">
 
     <script src='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js'></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css' rel='stylesheet' />
@@ -117,9 +117,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <nav class="top-nav">
         <div class="button-container">
             <button id="editBtn" class="btn btn-edit"><i class="fas fa-edit"></i> Modifier</button>
-            <a href="pdf/download_cv.php" class="btn btn-download"><i class="fas fa-download"></i> Télécharger CV</a>
+            <a href="../pdf/download_cv.php" class="btn btn-download"><i class="fas fa-download"></i> Télécharger CV</a>
             <a href="gallery.php" class="btn btn-gallery"><i class="fas fa-images"></i> Voir les CV</a>
-            <a href="register/logout.php" class="btn btn-logout"><i class="fas fa-sign-out-alt"></i> Déconnexion</a>
+            <a href="../register/logout.php" class="btn btn-logout"><i class="fas fa-sign-out-alt"></i> Déconnexion</a>
         </div>
     </nav>
     <header>

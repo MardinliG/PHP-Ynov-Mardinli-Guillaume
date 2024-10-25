@@ -1,10 +1,10 @@
 <?php
-require('fpdf186/fpdf.php');
-require './database/db.php';
+require('../pdf/fpdf186/fpdf.php');
+require '../database/db.php';
 session_start();
 
 if (!isset($_SESSION['admin_id'])) {
-    header("Location: login.php");
+    header("Location: ../register/login.php");
     exit();
 }
 
@@ -25,7 +25,7 @@ try {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CV Gallery</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="assets/gallery.css">
+    <link rel="stylesheet" href="../assets/gallery.css">
 </head>
 <body>
 <header>
@@ -75,10 +75,10 @@ try {
                     <?php endforeach; ?>
                 </div>
             </div>
-            <a href="pdf/download_cv.php?user_id=<?php echo $user['admin_id']; ?>" class="download-btn">
+            <a href="../pdf/download_cv.php?user_id=<?php echo $user['admin_id']; ?>" class="download-btn">
                 <i class="fas fa-download"></i> Download CV
             </a>
-            <a href="contact/contact.php?user_id=<?php echo $user['admin_id']; ?>" class="contact-btn">
+            <a href="../contact/contact.php?user_id=<?php echo $user['admin_id']; ?>" class="contact-btn">
                 <i class="fas fa-envelope"></i> Contact
             </a>
         </div>

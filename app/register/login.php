@@ -1,6 +1,6 @@
 <?php
 session_start();
-require 'db.php'; // Include the database connection
+require '../database/db.php'; // Include the database connection
 
 // Check if the form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -17,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Set session for admin user
         $_SESSION['admin_id'] = $admin['id'];
         // Redirect to the CV page
-        header("Location:index.php");
+        header("Location:../public/index.php");
         exit;
     } else {
         $error = "Invalid username or password!";
@@ -32,7 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Login</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="assets/login.css">
+    <link rel="stylesheet" href="../assets/login.css">
 </head>
 <body>
 <div class="container">
