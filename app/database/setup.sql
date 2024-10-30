@@ -7,7 +7,8 @@ USE last_test;
 CREATE TABLE admin (
                        id INT AUTO_INCREMENT PRIMARY KEY,
                        username VARCHAR(255) NOT NULL,
-                       password VARCHAR(255) NOT NULL
+                       password VARCHAR(255) NOT NULL,
+                       role ENUM('admin', 'user') NOT NULL DEFAULT 'user'
 );
 
 CREATE TABLE personal_info (
@@ -17,6 +18,7 @@ CREATE TABLE personal_info (
                                name VARCHAR(255) NOT NULL,
                                title VARCHAR(255) NOT NULL,
                                about TEXT NOT NULL,
+                               display_in_gallery TINYINT(1) NOT NULL DEFAULT 0,
                                FOREIGN KEY (admin_id) REFERENCES admin(id)
 );
 

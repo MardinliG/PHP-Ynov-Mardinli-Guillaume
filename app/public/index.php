@@ -1,7 +1,6 @@
 <?php
 session_start();
 require '../database/db.php'; // Include the database connection
-
 // Check if the user is logged in as admin
 if (!isset($_SESSION['admin_id'])) {
     header("Location: ../register/login.php");

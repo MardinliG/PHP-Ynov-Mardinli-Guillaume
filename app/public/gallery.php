@@ -9,7 +9,7 @@ if (!isset($_SESSION['admin_id'])) {
 }
 
 try {
-    $stmt = $pdo->prepare('SELECT * FROM personal_info');
+    $stmt = $pdo->prepare('SELECT * FROM personal_info WHERE display_in_gallery = TRUE');
     $stmt->execute();
     $users = $stmt->fetchAll();
 } catch (PDOException $e) {
