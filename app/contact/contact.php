@@ -52,9 +52,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $mail->isSMTP();
     $mail->Host = 'smtp.office365.com;smtp.gmail.com';
     $mail->SMTPAuth = true;
-    // J'ai pas push le fichier config.php parce que il contient des infos privées
-    $mail->Username = SMTP_USERNAME; // Utilise la constante définie dans config.php
-    $mail->Password = SMTP_PASSWORD; // Utilise la constante définie dans config.php
+    // Modifier les informations dans le fichier config.php
+    $mail->Username = SMTP_USERNAME; // définie dans config.php
+    $mail->Password = SMTP_PASSWORD; // définie dans config.php
     $mail->SMTPSecure = PHPMailer\PHPMailer\PHPMailer::ENCRYPTION_STARTTLS;
     $mail->Port = 587;
 
