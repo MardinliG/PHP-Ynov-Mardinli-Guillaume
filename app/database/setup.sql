@@ -1,8 +1,8 @@
 -- Create database
-CREATE DATABASE last_test;
+CREATE DATABASE cv_php;
 
 -- Use the database
-USE last_test;
+USE cv_php;
 
 CREATE TABLE admin (
                        id INT AUTO_INCREMENT PRIMARY KEY,
