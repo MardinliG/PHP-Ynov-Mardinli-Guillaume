@@ -1,4 +1,19 @@
-# CV/Portfolio en PHP
+# CV - PHP
+```
+  
+  /$$$$$$  /$$    /$$                     /$$$$$$$  /$$   /$$ /$$$$$$$       
+ /$$__  $$| $$   | $$                    | $$__  $$| $$  | $$| $$__  $$      
+| $$  \__/| $$   | $$                    | $$  \ $$| $$  | $$| $$  \ $$      
+| $$      |  $$ / $$/       /$$$$$$      | $$$$$$$/| $$$$$$$$| $$$$$$$/      
+| $$       \  $$ $$/       |______/      | $$____/ | $$__  $$| $$____/       
+| $$    $$  \  $$$/                      | $$      | $$  | $$| $$            
+|  $$$$$$/   \  $/                       | $$      | $$  | $$| $$            
+ \______/     \_/                        |__/      |__/  |__/|__/            
+                                                                             
+                                                                             
+                                                                             
+
+```
 
 ## Description
 
@@ -6,9 +21,9 @@ Ce projet est un site web permettant aux utilisateurs de créer, gérer et affic
 
 ## Fonctionnalités
 
-- **Création de compte / Connexion / Déconnexion** : Chaque utilisateur peut créer un compte, se connecter et se déconnecter.
-- **Création de CV avec un template esthétique** : Possibilité de créer un CV à partir de modèles prédéfinis avec un design professionnel.
-- **Liste des projets** : Les utilisateurs peuvent ajouter une liste de projets réalisés qui seront visibles sur leur portfolio.
+- **Création de compte** : Chaque utilisateur peut créer un compte, se connecter et se déconnecter.
+- **Création de CV** : Possibilité de créer un CV à partir de modèles prédéfinis.
+- **Liste des projets** : Les utilisateurs peuvent ajouter une liste de projets réalisés qui seront visibles sur leur CV.
 - **Voir les CV des autres utilisateurs** : Chaque utilisateur peut consulter les CV des autres utilisateurs du site.
 - **Télécharger le CV en PDF** : Le CV peut être généré et téléchargé au format PDF.
 - **Envoyer un e-mail directement à un utilisateur** : Une option pour contacter l'utilisateur via un e-mail est disponible sur son profil.
@@ -29,41 +44,39 @@ Suivez ces étapes pour cloner, installer et lancer le projet sur votre machine 
       ```bash
       git clone https://github.com/MardinliG/PHP-Ynov-Mardinli-Guillaume.git
       ```
-    - Cela va créer un dossier `cv-portfolio` contenant tous les fichiers du projet.
+    - Cela va créer un dossier  contenant tous les fichiers du projet.
+    - Ouvrez Docker installé précedement
 
-2. **Naviguer dans le répertoire**
+2. **Lancement du Projet**
     - Dans le terminal, naviguez dans le dossier du projet cloné :
       ```bash
       cd .\Docker\
       ```
-
-3. **Configurer Docker**
-    - Assurez-vous que Docker est bien installé et fonctionne correctement.
-    - Le projet inclut un fichier `docker-compose.yml` qui contient toutes les configurations nécessaires pour lancer l'application avec PHP, MySQL, et PHPMyAdmin.
-    - Exécutez la commande suivante pour lancer l'application à l'aide de Docker :
+    - Executez la commande pour lancer le projet
       ```bash
       docker-compose up 
       ```
-    - Cette commande va :
-        - Télécharger les conteneurs nécessaires (PHP, MySQL, PHPMyAdmin).
-        - Configurer un serveur local où l'application sera disponible.
-        - Lancer une base de données MySQL préconfigurée.
+
+  **⚠️ Important :**
+
+  - Lors de votre premier lancement vous drevez mettre en place la base de donnée. 
+    - Pour ce faire veuillez vous rendre dans l'adminer via l'adresse [127.0.0.1:8080](http://127.0.0.1:8080)
+    - Connectez vous avec l'utilisateur : `root` et le Mot de passe : `root`
+    - A gauche de la page vous pourrez faire une requete SQL, **Copiez et Collez** le fichier `setup.sql` et **Executez** la requete.
 
 4. **Accéder à l'application**
-    - Une fois que Docker a terminé de lancer les conteneurs, ouvrez votre navigateur et accédez à l'application à l'adresse suivante :
-      ```
-      127.0.0.1
-      ```
-    - Pour accéder à l'interface d'administration de la base de données via PHPMyAdmin (pour voir ou gérer les données) :
-      ```
-      127.0.0.1:8080
-      ```
-    - Les identifiants par défaut pour MySQL sont :
-        - **Utilisateur** : `root`
-        - **Mot de passe** : `root`
+    - Une fois que vous avez configurer la base de donnée vous pouvez relancer le projet et vous rendre a l'adresse suivante : 
+    
+      [127.0.0.1](http://127.0.0.1)
 
 5. **Utilisation de l'application**
     - Vous pouvez maintenant commencer à utiliser l'application en créant un compte, en vous connectant, et en commençant à remplir votre CV et portfolio !
+
+6. *Informations complementaires*
+  - Le premier utilisateur créé est par defaut administrateur.
+    - Un Administrateur peut changer le role d'un utilisateur et choisir si son cv est publié dans la galerie des CVs. *(possibilité de supprimer un utilisateur prochainement)*
+    - L'adresse du panneau d'administration :
+    [127.0.0.1/admin/admin.php](http://127.0.0.1/admin/admin.php) 
 
 ## Technologies utilisées
 
