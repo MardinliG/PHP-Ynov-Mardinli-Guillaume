@@ -1,8 +1,8 @@
 -- Create database
-CREATE DATABASE cv_php;
+CREATE DATABASE cv_php_ynov;
 
 -- Use the database
-USE cv_php;
+USE cv_php_ynov;
 
 CREATE TABLE admin (
                        id INT AUTO_INCREMENT PRIMARY KEY,
@@ -58,6 +58,23 @@ CREATE TABLE contact (
                          github VARCHAR(255) NOT NULL,
                          FOREIGN KEY (admin_id) REFERENCES admin(id)
 );
+
+DELIMITER //
+
+-- Trigger to set the role for the first user as 'admin' and others as 'user'
+CREATE TRIGGER after_admin_insert
+    BEFORE INSERT ON admin
+    FOR EACH ROW
+BEGIN
+    -- Check if this is the first user
+    IF (SELECT COUNT(*) FROM admin) = 0 THEN
+        SET NEW.role = 'admin';
+    ELSE
+        SET NEW.role = 'user';
+    END IF;
+END //
+
+DELIMITER ;
 
 DELIMITER //
 

@@ -14,7 +14,7 @@ services:
     image: mariadb:latest
     environment:
       MYSQL_ROOT_PASSWORD: "root"
-      MYSQL_DATABASE: "last_test"
+      MYSQL_DATABASE: "cv_php_ynov"
     volumes:
       - mysqldata:/var/lib/mysql
     ports:
@@ -24,7 +24,7 @@ services:
     environment:
       PMA_HOST: db
       MYSQL_ROOT_PASSWORD: "root"
-      MYSQL_DATABASE: "last_test"
+      MYSQL_DATABASE: "cv_php_ynov"
     ports:
       - "8080:8080"
 

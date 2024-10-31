@@ -1,7 +1,7 @@
 <?php
 // Database connection using PDO
 $host = 'db';
-$db = 'last_test';
+$db = 'cv_php_ynov';
 $user = 'root'; // Update this with your MySQL username
 $pass = 'root';     // Update this with your MySQL password
 $charset = 'utf8mb4';
