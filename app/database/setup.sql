@@ -62,7 +62,7 @@ CREATE TABLE contact (
 DELIMITER //
 
 -- Trigger to set the role for the first user as 'admin' and others as 'user'
-CREATE TRIGGER after_admin_insert
+CREATE TRIGGER before_admin_insert
     BEFORE INSERT ON admin
     FOR EACH ROW
 BEGIN
@@ -73,10 +73,6 @@ BEGIN
         SET NEW.role = 'user';
     END IF;
 END //
-
-DELIMITER ;
-
-DELIMITER //
 
 CREATE TRIGGER after_admin_insert
     AFTER INSERT ON admin
