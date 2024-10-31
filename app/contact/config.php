@@ -1,4 +1,4 @@
 <?php
-define('SMTP_USERNAME','email@email.com'); // replace with your email
-define('SMTP_PASSWORD','password'); // replace with your password
+define('SMTP_USERNAME','guillaume.mardinli@ynov.com');
+define('SMTP_PASSWORD','Antananarivo*9931');
 ?>
