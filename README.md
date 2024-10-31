@@ -60,9 +60,12 @@ Suivez ces étapes pour cloner, installer et lancer le projet sur votre machine 
   **⚠️ Important :**
 
   - Lors de votre premier lancement vous drevez mettre en place la base de donnée. 
+  
     - Pour ce faire veuillez vous rendre dans l'adminer via l'adresse [127.0.0.1:8080](http://127.0.0.1:8080)
     - Connectez vous avec l'utilisateur : `root` et le Mot de passe : `root`
-    - A gauche de la page vous pourrez faire une requete SQL, **Copiez et Collez** le fichier `setup.sql` et **Executez** la requete.
+    - A gauche de la page vous pourrez faire une requete SQL, **Copiez et Collez** le fichier `setup.sql` quise situe dans le dossier `database` et **Executez** la requete.
+
+    - Il est important de modifier le fichier `config.php` qui se situe dans le dossier `contact` avec votre adresse mail et votre mot de passe afin de contacter les autres utilisateurs
 
 4. **Accéder à l'application**
     - Une fois que vous avez configurer la base de donnée vous pouvez relancer le projet et vous rendre a l'adresse suivante : 
