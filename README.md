@@ -30,7 +30,7 @@ Ce projet est un site web permettant aux utilisateurs de créer, gérer et affic
 
 ## Prérequis
 
-Avant de commencer, assurez-vous d'avoir les éléments suivants installés sur votre machine :
+Avant de commencer, assurez-vous d'avoir Docker sur votre machine :
 
 - [Docker](https://www.docker.com/get-started) : Docker permet de lancer et d'exécuter l'application dans des conteneurs, ce qui simplifie l'installation et l'exécution du projet sans avoir besoin d'installer manuellement PHP, MySQL, etc.
 
