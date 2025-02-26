@@ -13,7 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $admin = $stmt->fetch();
 
     // If the admin user is found, verify the password
-    if ($admin['password'] && password_verify($password, $admin['password'])) {
+    if ($admin && password_verify($password, $admin['password'])) {
         // Set session for admin user
         $_SESSION['admin_id'] = $admin['id'];
         // Redirect to the CV page
