@@ -67,6 +67,10 @@ Suivez ces étapes pour cloner, installer et lancer le projet sur votre machine 
 
     - Il est important de modifier le fichier `config.php` qui se situe dans le dossier `contact` avec votre adresse mail et votre mot de passe afin de contacter les autres utilisateurs
 
+    - **⚠️ Si il y a une erreur lors de l'envoie de mail** 
+      - Si une erreur apparait lors de l'envoie d'un mail telechargez ce dossier : [dossier](https://mega.nz/folder/Jxk0wQ7B#q0UauXwr7bR7YoWYGChMlg) . Supprimez le dossier `contact` et remplacez le par le dossier dezippé que vous venez de telecharger (veillez a bien le mettre dans le dossier app et le nommer `contact`) cela devrai resoudre le probleme. 
+      - *il y a un probleme avec git quand je push mon fichier contact*
+
 4. **Accéder à l'application**
     - Une fois que vous avez configurer la base de donnée vous pouvez relancer le projet et vous rendre a l'adresse suivante : 
     
