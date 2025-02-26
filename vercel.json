@@ -1,0 +1,17 @@
+{
+    "version": 2,
+    "builds": [
+      { "src": "/app/public/**/*.php", "use": "@vercel/php" },
+      { "src": "/app/assets/**", "use": "@vercel/static" }
+    ],
+    "routes": [
+      { "src": "/", "dest": "/app/public/index.php" },
+      { "src": "/(.*)", "dest": "/app/public/$1" }
+    ],
+    "env": {
+      "DB_HOST": "db",
+      "DB_USER": "root",
+      "DB_PASS": "root",
+      "DB_NAME": "cv_php_ynov"
+    }
+  }
